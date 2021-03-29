@@ -40,3 +40,24 @@ Entrypoint application = js/application-b43fa54005da8e229d8c.js js/application-b
 Completed 200 OK in 3695ms (Views: 3687.9ms | ActiveRecord: 0.0ms | Allocations: 17297)
 
 
+Started GET "/" for ::1 at 2021-03-29 18:57:55 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 291)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 5690)
+Completed 200 OK in 26ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 8843)
+
+
+Started GET "/" for ::1 at 2021-03-29 18:57:59 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 37)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 2872)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 3322)
+
+
