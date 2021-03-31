@@ -4248,3 +4248,437 @@ Processing by ArticlesController#edit as HTML
 Completed 200 OK in 71ms (Views: 54.3ms | ActiveRecord: 0.5ms | Allocations: 5598)
 
 
+Started GET "/" for ::1 at 2021-03-31 17:12:29 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:12:in `public_count'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 25.9ms | Allocations: 5846)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 131.1ms | Allocations: 11586)
+Completed 200 OK in 162ms (Views: 134.7ms | ActiveRecord: 1.9ms | Allocations: 16761)
+
+
+Started GET "/articles/1" for ::1 at 2021-03-31 17:12:32 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 28.5ms | Allocations: 7290)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 7358)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.3ms | Allocations: 8674)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<ActionView::Base:0x000000000082c8>):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments/comment %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/1" for ::1 at 2021-03-31 17:12:48 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 12.1ms | Allocations: 4343)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 4413)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.1ms | Allocations: 6150)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comments' for #<ActionView::Base:0x00000000008750>):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments/comments %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/1" for ::1 at 2021-03-31 17:13:10 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered articles/show.html.erb within layouts/application (Duration: 26.7ms | Allocations: 9742)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 9811)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.1ms | Allocations: 11527)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_comment with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/mihndim/Microverse/My-Blog-App/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actiontext-6.1.3.1/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actionmailbox-6.1.3.1/app/views"
+):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/1" for ::1 at 2021-03-31 17:13:20 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 3471)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 3541)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.4ms | Allocations: 5277)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Article id: 1, title: "Hello Rails", body: "I am on Rails!", created_at: "2021-03-29 23:41:26.216553000 +0000", updated_at: "2021-03-29 23:41:26.216553000 +0000", status: nil>
+Did you mean?  comments
+               comments=):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comment %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/1" for ::1 at 2021-03-31 17:13:36 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered articles/show.html.erb within layouts/application (Duration: 11.0ms | Allocations: 2428)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 2498)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.4ms | Allocations: 4232)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_comment with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/mihndim/Microverse/My-Blog-App/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actiontext-6.1.3.1/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actionmailbox-6.1.3.1/app/views"
+):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/1" for ::1 at 2021-03-31 17:15:47 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered articles/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2428)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 2498)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.7ms | Allocations: 4231)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_comment with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/mihndim/Microverse/My-Blog-App/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actiontext-6.1.3.1/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actionmailbox-6.1.3.1/app/views"
+):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/1" for ::1 at 2021-03-31 17:15:51 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered articles/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1973)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2041)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms | Allocations: 2991)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_comment with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/mihndim/Microverse/My-Blog-App/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actiontext-6.1.3.1/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actionmailbox-6.1.3.1/app/views"
+):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+Started GET "/articles/" for ::1 at 2021-03-31 17:16:08 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:12:in `public_count'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 1788)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 4921)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.9ms | Allocations: 5505)
+
+
+Started GET "/articles/3" for ::1 at 2021-03-31 17:16:11 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 3]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.3ms | Allocations: 22)
+  Rendered comments/_form.html.erb (Duration: 56.5ms | Allocations: 8363)
+  Rendered articles/show.html.erb within layouts/application (Duration: 77.8ms | Allocations: 9526)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.0ms | Allocations: 12304)
+Completed 200 OK in 101ms (Views: 85.9ms | ActiveRecord: 1.1ms | Allocations: 13294)
+
+
+Started GET "/articles/6" for ::1 at 2021-03-31 17:16:19 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 6]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 10)
+  Rendered comments/_form.html.erb (Duration: 6.2ms | Allocations: 996)
+  Rendered articles/show.html.erb within layouts/application (Duration: 21.2ms | Allocations: 2010)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 4886)
+Completed 200 OK in 59ms (Views: 40.6ms | ActiveRecord: 1.2ms | Allocations: 5877)
+
+
+Started GET "/articles/7" for ::1 at 2021-03-31 17:16:25 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 7]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.3ms | Allocations: 10)
+  Rendered comments/_form.html.erb (Duration: 36.6ms | Allocations: 996)
+  Rendered articles/show.html.erb within layouts/application (Duration: 56.9ms | Allocations: 2007)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.4ms | Allocations: 5470)
+Completed 200 OK in 94ms (Views: 82.0ms | ActiveRecord: 1.0ms | Allocations: 6461)
+
+
+Started GET "/articles/8" for ::1 at 2021-03-31 17:16:28 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 8]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.2ms | Allocations: 10)
+  Rendered comments/_form.html.erb (Duration: 15.8ms | Allocations: 996)
+  Rendered articles/show.html.erb within layouts/application (Duration: 35.6ms | Allocations: 2007)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.5ms | Allocations: 4883)
+Completed 200 OK in 69ms (Views: 53.4ms | ActiveRecord: 1.0ms | Allocations: 5874)
+
+
+Started GET "/articles/8/edit" for ::1 at 2021-03-31 17:16:30 -0400
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 18.6ms | Allocations: 1385)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 22.3ms | Allocations: 1684)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 4561)
+Completed 200 OK in 63ms (Views: 41.8ms | ActiveRecord: 0.6ms | Allocations: 5721)
+
+
+Started GET "/articles/1" for ::1 at 2021-03-31 17:16:34 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered articles/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1973)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 2041)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms | Allocations: 2991)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_comment with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/home/mihndim/Microverse/My-Blog-App/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actiontext-6.1.3.1/app/views"
+  * "/home/mihndim/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/actionmailbox-6.1.3.1/app/views"
+):
+    10: </ul>
+    11: 
+    12: <h2>Comments</h2>
+    13: <%= render @article.comments %>
+    14: 
+    15: <h2>Add a comment:</h2>
+    16: <%= render 'comments/form' %>
+  
+app/views/articles/show.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Destroy (6.1ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 1]]
+  [1m[36mArticle Destroy (0.2ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (15.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/articles/1" for ::1 at 2021-03-31 17:22:54 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+Completed 404 Not Found in 22ms (ActiveRecord: 1.4ms | Allocations: 5617)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1):
+  
+app/controllers/articles_controller.rb:9:in `show'
+Started GET "/articles/new" for ::1 at 2021-03-31 17:23:01 -0400
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 18.0ms | Allocations: 5362)
+  Rendered articles/new.html.erb within layouts/application (Duration: 20.0ms | Allocations: 5676)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 42.1ms | Allocations: 11241)
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 0.0ms | Allocations: 15093)
+
+
+Started GET "/" for ::1 at 2021-03-31 17:23:09 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:12:in `public_count'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1959)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4849)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.8ms | Allocations: 5449)
+
+
+Started GET "/" for ::1 at 2021-03-31 17:23:11 -0400
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."status" = ?[0m  [["status", "public"]]
+  ↳ app/models/concerns/visible.rb:12:in `public_count'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:6
+  Rendered articles/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1565)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 4454)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.4ms | Allocations: 4912)
+
+
+Started GET "/articles/3" for ::1 at 2021-03-31 17:23:13 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 3]]
+  ↳ app/views/articles/show.html.erb:13
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 22)
+  Rendered comments/_form.html.erb (Duration: 22.7ms | Allocations: 5419)
+  Rendered articles/show.html.erb within layouts/application (Duration: 69.7ms | Allocations: 10964)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.2ms | Allocations: 14382)
+Completed 200 OK in 102ms (Views: 81.8ms | ActiveRecord: 3.1ms | Allocations: 15501)
+
+
+Started GET "/articles/3/edit" for ::1 at 2021-03-31 17:23:15 -0400
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 20.0ms | Allocations: 968)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 23.3ms | Allocations: 1142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.0ms | Allocations: 4677)
+Completed 200 OK in 71ms (Views: 51.4ms | ActiveRecord: 0.8ms | Allocations: 5821)
+
+
+Started GET "/articles/new" for ::1 at 2021-03-31 17:23:20 -0400
+Processing by ArticlesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 3.5ms | Allocations: 909)
+  Rendered articles/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1001)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3877)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 4358)
+
+
